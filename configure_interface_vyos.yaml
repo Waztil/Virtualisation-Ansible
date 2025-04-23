@@ -2,7 +2,7 @@
 - name : Configuration interface pare-feu Vyos 
   hosts : Vyos 
   become : yes
-  tasks:
+  tasks :
   
     - name : configuration interface eth0
       vyos.vyos.vyos_interface:

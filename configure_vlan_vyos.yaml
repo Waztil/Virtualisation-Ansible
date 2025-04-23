@@ -1,0 +1,26 @@
+---
+- name : Configuration des vlan sur eth0
+  hosts : Vyos
+  gather_facts : no
+  collections : 
+    - vyos.vyos
+
+  tasks : 
+
+    - name : Creation du Vlan 10
+      vyos.vyos.vyos.interface:
+        name : eht0.10
+        address : 192.168.10.1/16
+        state : present
+
+    - name : Creation du Vlan 20
+      vyos.vyos.vyos.interface:
+        name : eht0.20
+        address : 192.168.20.1/16
+        state : present
+
+    - name : Sauvegarder les changements
+      vyos.vyos.vyos_system:
+        state : saved
+
+  
