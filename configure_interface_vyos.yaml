@@ -1,0 +1,27 @@
+---
+- name : Configuration interface pare-feu Vyos 
+  hosts : Vyos 
+  become : yes
+  tasks:
+  
+    - name : configuration interface eth0
+      vyos.vyos.vyos_interface:
+        name : eth0
+        address : 192.168.6.1/16
+        state : present
+
+    - name : configuration interface eth1
+      vyos.vyos.vyos_interface:
+        name : eth0
+        address : 192.168.5.15/16
+        state : present
+
+    - name : configuration interface eth2
+      vyos.vyos.vyos_interface:
+        name : eth0
+        address : 192.168.7.5/16
+        state : present
+
+    - name : Sauvegarder les changements
+      vyos.vyos.vyos_system:
+        state : saved
