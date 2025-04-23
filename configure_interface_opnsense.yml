@@ -1,0 +1,29 @@
+- name: Configurer des interfaces sur OPNsense
+  hosts: OPNSense
+  gather_facts: no
+
+  vars:
+    api_user: root
+    api_password: opnsense
+    opnsense_host: 192.168.7.1
+
+  tasks:
+    - name: Configurer chaque interface
+      uri:
+        url: "https://{{ opnsense_host }}/api/interfaces/{{ item.name }}/setInterface"
+        method: POST
+        user: "{{ api_user }}"
+        password: "{{ api_password }}"
+        body_format: json
+        body:
+          descr: "{{ item.descr }}"
+          enable: true
+          ipv4addr: "{{ item.ip }}"
+          subnet: "{{ item.subnet }}"
+          apply: true
+        validate_certs: no
+      loop: "{{ interfaces }}"
+
+    - name: Afficher le résultat de la dernière config
+      debug:
+        var: result
