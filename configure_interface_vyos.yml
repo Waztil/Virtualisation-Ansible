@@ -6,7 +6,7 @@
   
   tasks:
   
-    - name: configuration interface {{ item.name }}
+    - name: configuration interface "{{ item.name }}"
       vyos.vyos.vyos_interface:
         name: "{{ item.name }}"
         address: "{{ item.address }}"

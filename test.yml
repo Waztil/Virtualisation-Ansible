@@ -1,0 +1,12 @@
+---
+- name: Test de base VyOS
+  hosts: vyos
+  gather_facts: no
+  collections:
+    - vyos.vyos
+
+  tasks:
+    - name: "Affiche la config active"
+      vyos.vyos.vyos_command:
+        commands:
+          - "show interfaces"
