@@ -7,7 +7,7 @@
   tasks:
     - name: Configurer l'interface
       uri:
-        url: "https://{{ opnsense_host }}/api/interfaces/{{ item.name }}/setInterface"
+        url: "https:///api/interfaces/{{ item.name }}/setInterface"
         method: POST
         user: "{{ api_user }}"
         password: "{{ api_password }}"
