@@ -1,0 +1,15 @@
+- name: Configurer l'interface
+  uri:
+    url: "https://api/interfaces/{{ item.name }}/setInterface"
+    method: POST
+    user: "{{ api_user }}"
+    password: "{{ api_password }}"
+    body_format: json
+    body:
+      descr: "{{ item.descr }}"
+      enable: true
+      address: "{{ item.address }}"
+      subnet: "{{ item.subnet }}"
+      apply: true
+    validate_certs: no
+  loop: "{{ interfaces }}"

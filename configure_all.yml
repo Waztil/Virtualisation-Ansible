@@ -1,0 +1,9 @@
+---
+- name: Configuration du réseau
+  hosts: all
+  gather_facts: no
+  roles:
+    - vyos_interfaces
+    - opnsense_interfaces
+    - vyos_vlans
+    - vyos_dhcp

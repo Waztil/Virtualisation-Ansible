@@ -1,0 +1,10 @@
+- name: "Configurer l'interface {{ item.name }}"
+  vyos.vyos.vyos_interface:
+    name: "{{ item.name }}"
+    address: "{{ item.address }}"
+    state: present
+  loop: "{{ interfaces }}"
+
+- name: Sauvegarder les changements
+  vyos.vyos.vyos_system:
+    state: saved
