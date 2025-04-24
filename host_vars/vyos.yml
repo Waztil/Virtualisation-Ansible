@@ -1,0 +1,15 @@
+interfaces:
+  - name: eth0
+    descr: Vlan
+    address: 192.168.6.1/16
+    subnet: 16
+
+  - name: eth1
+    descr: opnsense
+    address: 192.168.5.15/16
+    subnet: 16
+
+  - name: eth2
+    descr: AD
+    address: 192.168.7.5/16
+    subnet: 16

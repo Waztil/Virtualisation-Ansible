@@ -1,15 +1,18 @@
 interfaces:
   - name: vtnet0
     descr: LAN
-    ip: 192.168.7.1
+    address: 192.168.7.1
+    subnet: 255.255.0.0
     subnet: 16
 
   - name: vtnet2
     descr: Vyos
-    ip: 192.168.5.1
+    address: 192.168.5.1
+    subnet: 255.255.0.0
     subnet: 16
 
   - name: vtnet3
     descr: DMZMetasploit
-    ip: 192.168.4.1
+    address: 192.168.4.1
+    subnet: 255.255.0.0
     subnet: 16

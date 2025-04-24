@@ -1,4 +1,3 @@
----
 - name: Configuration des vlan sur eth0
   hosts: Vyos
   gather_facts: no

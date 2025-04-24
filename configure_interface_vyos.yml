@@ -1,29 +1,18 @@
----
-- name: Configuration interface pare-feu Vyos 
-  hosts: Vyos 
+- name: Configuration des interfaces Vyos 
+  hosts: vyos 
   gather_facts: no
   collections: 
     - vyos.vyos
-    
+  
   tasks:
   
-    - name: configuration interface eth0
+    - name: configuration interface {{ item.name }}
       vyos.vyos.vyos_interface:
-        name: { item.name }
-        address: { item.address }
+        name: "{{ item.name }}"
+        address: "{{ item.address }}"
         state: present
 
-    - name: configuration interface eth1
-      vyos.vyos.vyos_interface:
-        name: eth1
-        address: 192.168.5.15/16
-        state: present
-
-    - name: configuration interface eth2
-      vyos.vyos.vyos_interface:
-        name: eth2
-        address: 192.168.7.5/16
-        state: present
+      loop: "{{interfaces}}"
 
     - name: Sauvegarder les changements
       vyos.vyos.vyos_system:
