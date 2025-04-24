@@ -10,3 +10,33 @@ interfaces:
   - name: eth2
     descr: AD
     address: 192.168.7.5/16
+
+vyos_vlans:
+  - id: 10
+    name: vlan10
+    address: 192.168.10.1/16
+    interface: eth0.10
+  - id: 20
+    name: vlan20
+    address: 192.168.20.1/16
+    interface: eth0.20
+
+dhcp_servers:
+  - id: dhcp_vlan10
+    subnet: 192.168.10.0
+    netmask: 255.255.0.0
+    start: 192.168.10.10
+    stop: 192.168.10.100
+    default_router: 192.168.10.1
+    dns_server: 8.8.8.8
+    interface: eth0.10
+
+  - id: dhcp_vlan20
+    subnet: 192.168.20.0
+    netmask: 255.255.0.0
+    start: 192.168.20.10
+    stop: 192.168.20.100
+    default_router: 192.168.20.1
+    dns_server: 8.8.8.8
+    interface: eth0.20
+

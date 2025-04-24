@@ -6,20 +6,9 @@
 
   tasks: 
 
-    - name: Creation du Vlan 10
+    - name: Creation du {{ item.id }}
       vyos.vyos.vyos_interface:
-        name: eth0.10
-        address: 192.168.10.1/16
-        state: present
-
-    - name: Creation du Vlan 20
-      vyos.vyos.vyos.interface:
-        name: eth0.20
-        address: 192.168.20.1/16
-        state: present
-
-    - name: Sauvegarder les changements
-      vyos.vyos.vyos_system:
-        state: saved
+        id: {{ item.id }}
+        
 
   
