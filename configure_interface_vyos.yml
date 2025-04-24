@@ -1,18 +1,17 @@
+---
 - name: Configuration des interfaces Vyos 
-  hosts: vyos 
+  hosts: vyos
   gather_facts: no
-  collections: 
+  collections:
     - vyos.vyos
-  
+
   tasks:
-  
-    - name: configuration interface "{{ item.name }}"
+    - name: "Configurer l'interface {{ item.name }}"
       vyos.vyos.vyos_interface:
         name: "{{ item.name }}"
         address: "{{ item.address }}"
         state: present
-
-      loop: "{{interfaces}}"
+      loop: "{{ interfaces }}"
 
     - name: Sauvegarder les changements
       vyos.vyos.vyos_system:
