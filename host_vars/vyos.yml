@@ -11,7 +11,7 @@ interfaces:
     descr: AD
     address: 192.168.7.5/16
 
-vlans:
+vlan:
   - name: VLAN10
     address: 192.168.10.1/16
     interface: eth0.10

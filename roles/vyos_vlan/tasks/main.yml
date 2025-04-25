@@ -1,0 +1,10 @@
+- name: Configurer les VLAN sur VyOS
+  vyos.vyos.vyos_interface:
+    name: "{{ item.interface }}"
+    address: "{{ item.address }}"
+    state: present
+  loop: "{{ vlan }}"
+
+- name: Sauvegarder la configuration
+  vyos.vyos.vyos_system:
+    state: saved

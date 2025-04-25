@@ -1,0 +1,15 @@
+- name: Configurer les serveurs DHCP sur VyOS
+  vyos.vyos.vyos_dhcp_server:
+    interface: "{{ item.interface }}"
+    subnet: "{{ item.subnet }}"
+    netmask: "{{ item.netmask }}"
+    start: "{{ item.start }}"
+    stop: "{{ item.stop }}"
+    default_router: "{{ item.default_router }}"
+    dns_server: "{{ item.dns_server }}"
+    state: present
+  loop: "{{ dhcp_servers }}"
+
+- name: Sauvegarder la configuration DHCP
+  vyos.vyos.vyos_system:
+    state: saved

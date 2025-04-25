@@ -3,7 +3,7 @@
   gather_facts: no
   roles:
     - vyos_interfaces
-    - vyos_vlans
+    - vyos_vlan
     - vyos_dhcp
 
 - name: Config OPNsense
