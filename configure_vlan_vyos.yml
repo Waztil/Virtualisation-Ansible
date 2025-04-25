@@ -1,14 +1,10 @@
-- name: Configuration des vlan sur eth0
-  hosts: Vyos
-  gather_facts: no
-  collections: 
-    - vyos.vyos
+- name: Configurer les VLANs sur VyOS
+  vyos.vyos.vyos_interface:
+    name: "{{ item.interface }}"
+    address: "{{ item.address }}"
+    state: present
+  loop: "{{ vlans }}"
 
-  tasks: 
-
-    - name: Creation du {{ item.id }}
-      vyos.vyos.vyos_interface:
-        id: {{ item.id }}
-        
-
-  
+- name: Sauvegarder la configuration
+  vyos.vyos.vyos_system:
+    state: saved

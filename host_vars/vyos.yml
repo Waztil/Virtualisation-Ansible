@@ -11,13 +11,12 @@ interfaces:
     descr: AD
     address: 192.168.7.5/16
 
-vyos_vlans:
-  - id: 10
-    name: vlan10
+vlans:
+  - name: VLAN10
     address: 192.168.10.1/16
     interface: eth0.10
-  - id: 20
-    name: vlan20
+
+  - name: VLAN20
     address: 192.168.20.1/16
     interface: eth0.20
 
