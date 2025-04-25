@@ -1,15 +1,16 @@
-- name: Configurer l'interface
+- name: Configurer les interfaces OPNsense via l'API
   uri:
-    url: "https://api/interfaces/{{ item.name }}/setInterface"
+    url: "https://{{ inventory_hostname }}/api/interfaces/{{ item.name }}/setInterface"
     method: POST
-    user: "{{ api_user }}"
-    password: "{{ api_password }}"
+    user: "{{ ansible_user }}"
+    password: "{{ ansible_password }}"
     body_format: json
     body:
-      descr: "{{ item.descr }}"
       enable: true
       address: "{{ item.address }}"
       subnet: "{{ item.subnet }}"
       apply: true
     validate_certs: no
+    force_basic_auth: yes
+    status_code: 200
   loop: "{{ interfaces }}"
