@@ -1,9 +1,13 @@
----
-- name: Configuration du réseau
-  hosts: all
+- name: Config VyOS
+  hosts: vyos
   gather_facts: no
   roles:
     - vyos_interfaces
-    - opnsense_interfaces
     - vyos_vlans
     - vyos_dhcp
+
+- name: Config OPNsense
+  hosts: opnsense
+  gather_facts: no
+  roles:
+    - opnsense_interfaces
