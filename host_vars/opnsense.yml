@@ -13,3 +13,33 @@ interfaces:
     descr: DMZMetasploit
     address: 192.168.4.1
     subnet: 16
+
+#    firewall_rules:
+#  - interface: vtnet3
+#    action: block
+#    source: 192.168.4.0/16
+#    destination: any
+#    protocol: any
+#    description: "Bloquer l'accès a la DMZ"
+
+#  - interface: vtnet2
+#    action: pass
+#    source: 192.168.10.0/24
+#    destination: any
+#    protocol: any
+#    description: "Accès internet Vlan10"
+
+#  - interface: vtnet2
+#    action: pass
+#    source: 192.168.20.0/24
+#    destination: any
+#    protocol: any
+#    description: "Accès internet Vlan20"
+
+#  - interface: vtnet0
+#    action: pass
+#    source: 192.168.7.3/16
+#    destination: any
+#    protocol: any
+#    description: "Accès internet Admin"
+

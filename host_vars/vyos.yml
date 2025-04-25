@@ -13,11 +13,11 @@ interfaces:
 
 vlan:
   - name: VLAN10
-    address: 192.168.10.1/16
+    address: 192.168.10.1/24
     interface: eth0.10
 
   - name: VLAN20
-    address: 192.168.20.1/16
+    address: 192.168.20.1/24
     interface: eth0.20
 
 dhcp_servers:
@@ -25,7 +25,7 @@ dhcp_servers:
     subnet: 192.168.10.0
     netmask: 255.255.0.0
     start: 192.168.10.10
-    stop: 192.168.10.100
+    stop: 192.168.10.200
     default_router: 192.168.10.1
     dns_server: 8.8.8.8
     interface: eth0.10
@@ -34,7 +34,7 @@ dhcp_servers:
     subnet: 192.168.20.0
     netmask: 255.255.0.0
     start: 192.168.20.10
-    stop: 192.168.20.100
+    stop: 192.168.20.200
     default_router: 192.168.20.1
     dns_server: 8.8.8.8
     interface: eth0.20
